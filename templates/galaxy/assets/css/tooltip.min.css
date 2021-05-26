@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.tooltip {position:absolute;z-index:999999;background:rgba(0,0,0,0.8);color:#fff;font-size:12px;border-radius:3px;padding:6px 8px;}
+.tooltip:after {content:'';border:5px solid transparent;position:absolute;}
+.tooltip[direction="top"]:after {border-top-color:rgba(0,0,0,0.8);left:calc(50% - 5px);bottom:-10px;}
+.tooltip[direction="right"]:after {border-right-color:rgba(0,0,0,0.8);left:-10px;top:calc(50% - 5px);}
+.tooltip[direction="left"]:after {border-left-color:rgba(0,0,0,0.8);right:-10px;top:calc(50% - 5px);}
+.tooltip[direction="bottom"]:after {border-bottom-color:rgba(0,0,0,0.8);left:calc(50% - 5px);top:-10px;}
+
+.tooltip > p {color:#fff;}
