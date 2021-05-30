@@ -39,7 +39,7 @@ while($permission = $selectPermissions->fetch()){
 						echo'
 						<div class="staff orange direction" action="actions/" id="4" id="4" >
 						<div class="avatar">
-						<img src="'.$config['avatarImageUrl'].'?figure='.$user['look'].'&head_direction=2&direction=2&gesture=sml" />
+						<img src="'.$config['avatarImageUrl'].'?figure='.$user['look'].'&head_direction=2&direction=2&gesture=sml" style="max-width: 67px;"/>
 						</div>
 						<div class="right">
 						<a href="../home/'.$user['username'].'">'.$user['username'].'</a>

@@ -4,7 +4,7 @@
 		die('Sorry but you cannot access this file!'); 
 	}
 	try {
-		$dbh = new PDO('mysql:host='.$db['host'].':'.$db['port'].';dbname='.$db['db'].'', $db['user'], $db['pass']);
+		$dbh = new PDO('mysql:host='.$db['host'].':'.$db['port'].';charset=utf8;dbname='.$db['db'].'', $db['user'], $db['pass']);
 	}
 	catch (PDOException $e) {
 		echo ("<div style='background-repeat: no-repeat;

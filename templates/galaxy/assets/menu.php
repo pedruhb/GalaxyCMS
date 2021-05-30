@@ -16,7 +16,7 @@
 			<ul class="center">
 				<li href="javascript:void(0);">
 					<div class="img">
-						<img src="<?= $config['avatarImageUrl'];?>?figure=<?= User::userData('look') ?>&amp;head_direction=2&direction=2&amp;gesture=sml" />
+						<img src="<?= $config['avatarImageUrl'];?>?figure=<?= User::userData('look') ?>&amp;head_direction=2&direction=2&amp;gesture=sml&size=b" style="margin-right: 10px;" />
 					</div>
 					<a href="<?php echo $config['hotelUrl'];?>/me" class="href"><?= User::userData('username') ?></a>
 					<ul class="ssmenu">

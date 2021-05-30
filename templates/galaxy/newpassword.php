@@ -59,7 +59,7 @@
 				<div class="content">
 					<?php
 					$keyusernamepega = $dbh->prepare("SELECT userid from resetpassword where resetkey = :key");
-					$keyusernamepega->bindParam(':key', phb($_GET['key']));
+					$keyusernamepega->bindParam(':key', $_GET['key']);
 					$keyusernamepega->execute();
 					$keyusernamepegar = $keyusernamepega->fetch();
 					$nomeuserpega = $dbh->prepare("SELECT username from users where id = :id");
@@ -67,7 +67,7 @@
 					$nomeuserpega->execute();
 					$nomeuserpegar = $nomeuserpega->fetch();
 					$getArticles = $dbh->prepare("SELECT count(id) as total FROM resetpassword WHERE resetkey = :key AND enable = '0'");
-					$getArticles->bindParam(':key', phb($_GET['key']));
+					$getArticles->bindParam(':key', $_GET['key']);
 					$getArticles->execute();
 					$result = $getArticles->fetch();
 					if ($result["total"] == 0)
@@ -98,7 +98,7 @@
 										if (strlen($_POST['password_reset']) >= 6)
 										{
 											$getResetKey = $dbh->prepare("SELECT * FROM resetpassword WHERE resetkey = :key AND enable = '0' LIMIT 1");
-											$getResetKey->bindParam(':key', phb($_GET['key']));
+											$getResetKey->bindParam(':key', $_GET['key']);
 											$getResetKey->execute();
 											$getInfo = $getResetKey->fetch();
 											if ($getResetKey->RowCount() > 0)
@@ -110,7 +110,7 @@
 												$updatePassword->execute(); 
 												$disableKey = $dbh->prepare("UPDATE resetpassword SET enable = '1'  WHERE userid = :userid AND resetkey = :resetkey");
 												$disableKey->bindParam(':userid', $getInfo['userid']); 
-												$disableKey->bindParam(':resetkey', phb($_GET['key'])); 
+												$disableKey->bindParam(':resetkey', $_GET['key']); 
 												$disableKey->execute();   
 												echo '<span class="sucesso">Senha alterada com sucesso!</span>';
 											}

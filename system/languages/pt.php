@@ -56,6 +56,8 @@
 	$lang["Lnotexistuser"] = "O usuário informado não existe!";
 	$lang["Lnopassword"] = "Informe a sua senha!";
 	$lang["Lnousername"] = "Informe seu nome de usuário!";
+	$lang['IRsA'] = "Recupere sua senha!";
+	$lang['IRuA'] = "Recupere seu usuário!";
 
 	// register
 	$lang['Rrobot'] = "Prove que você não é um robô.";
@@ -331,3 +333,51 @@ $lang['Frha'] = "Revelada há";
 
 /// emojis
 $lang['Emojis'] = "Emojis";
+
+// topricos
+$lang['TRtitulo'] = "TOP Ricos"; 
+$lang['TRref'] = "TOP 13 Referências"; 
+$lang['TRdima'] = "TOP 13 Diamantes"; 
+$lang['TRest'] = "TOP 13 Estrelas"; 
+$lang['TRestrelas'] = "estrelas"; 
+$lang['TRdiamantes'] = "diamantes"; 
+$lang['TRreferencia'] = "referência"; 
+$lang['TRreferencias'] = "referências"; 
+
+/// topquartos
+$lang['TQtitulo'] = "TOP Quartos";
+$lang['TQquartos'] = "Quartos mais famosos do ".$config['hotelName']."!";
+$lang['TQgrupos'] = "Grupos mais populares";
+$lang['TQjoinhas'] = "joinhas";
+$lang['TQVisitar'] = "Visitar";
+$lang['TQde'] = "Quarto de";
+$lang['TQvqg'] = "Visitar o QR";
+$lang['TQmem'] = "membros";
+
+// topativos
+$lang['TAtitulo'] = "TOP Ativos";
+$lang['TAev'] = "TOP 13 Eventos (Geral)";
+$lang['TAres'] = "TOP 13 Respeitos";
+$lang['TAati'] = "TOP 13 Ativos";
+$lang['TAeg'] = "eventos ganho";
+$lang['TAre'] = "respeitos";
+$lang['TAho'] = "horas";
+
+// topativos2
+$lang['TA2titulo'] = "TOP Ativos 2";
+$lang['TA2evm'] = "TOP 13 Eventos (Mensal)";
+$lang['TA2prom'] = "TOP 13 Promoções";
+$lang['TA2conq'] = "TOP 13 Conquistas";
+$lang['TA2eg'] = "eventos ganho";
+$lang['TA2promo'] = "promoções ganhas";
+$lang['TA2conqui'] = "conquistas";
+
+/// vips
+$lang['Vtitulo']  = "VIP's";
+$lang['V1'] = "Por que eles são VIP?";
+$lang['V1c'] = "Os VIP's são usuários que fizeram doações para a ajudar os gastos do hotel, onde retribuímos a
+gentileza com o VIP.";
+$lang['V2'] = "Quais são as vantagens se der VIP?";
+$lang['V2c'] = " Os usuários VIP, podem trocar de nome quando quiser e quantas vezes quiser, tem comandos especiais, e além disso ganham emblemas, raros, meteoritos, diamantes e outros... <br>Para ver os planos clique <a href=\"#\">aqui</a>.";
+$lang['V3'] = "Como posso me tornar VIP?";
+$lang['V3c'] = "Para você ser VIP, clique <a href=\"#\">aqui</a> para acessar a central de contribuição do ".$config['hotelName']."!";

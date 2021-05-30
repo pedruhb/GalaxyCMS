@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<?php User::Login(); ?>
+	<?php User::Login(); ?>
 	<div style="position: absolute;bottom: 0; left: 0; right: 0">
 	</div>
 	<div class="cache" style="display:none;">
@@ -47,10 +47,7 @@
 						$infoUser->bindValue(':id', $getInfo['id']);
 						$infoUser->execute();
 						$getInfoUser = $infoUser->fetch();
-						$email = $getInfo["mail"];
-						require_once('system/class.phpmailer.php');
-						$time = time();
-						$mail = new PHPMailer();
+
 						$body = '
 						<td class="m_7569049885038207538wrapper" style="padding:0 10px">
 						<table width="100%" cellpadding="0" cellspacing="0">
@@ -91,27 +88,7 @@
 						</tr>
 						</tbody></table>
 						</td>';
-						$mail->IsSMTP(); // telling the class to use SMTP
-						$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)// 1 = errors and messa                                // 2 = messages only
-						$mail->SMTPAuth   = true;                  // enable SMTP authentication
-						$mail->SMTPSecure = "tls";
-						$mail->Host       = $config['smtphost']; // sets the SMTP server
-						$mail->Port       = $config['smtpport'];                   // set the SMTP port for the GMAIL server
-						$mail->Username   = $config['smtpuname']; // SMTP account username
-						$mail->Password   = $config['smtppassword'];        // SMTP account password
-						$mail->SetFrom($config['smtpemail'], $config['hotelName']);
-						$mail->AddReplyTo($config['emailadm'], $config['hotelName']);
-						$mail->CharSet = 'UTF-8';
-						$mail->Subject    = $config['hotelName'] . " - Recupere sua senha!";
-						$mail->AltBody    = $config['hotelName'] . " - Recupere sua senha!";
-						$mail->MsgHTML($body);
-						$address = $email;
-						$mail->AddAddress($address, $getInfo["username"]);
-						if ($mail->Send()) {
-							echo '<script>alert("' . $lang['IndexRUEnviado'] . ' \n' . $address . '\")</script>';
-						} else {
-							echo '<script>alert("' . $lang['IndexRUErro'] . '")</script>';
-						}
+						email($getInfo["mail"], $body, $lang['IRsA']);
 					}
 				}
 				if (isset($_POST['sendresetpasswordnow2'])) ### RECUPERAÇÂO DE NICK
@@ -128,10 +105,8 @@
 						$infoUser->bindParam(':id', $getInfo['id']);
 						$infoUser->execute();
 						$getInfoUser = $infoUser->fetch();
-						$email = $getInfo["mail"];
-						require_once('system/class.phpmailer.php');
-						$time = time();
-						$mail = new PHPMailer();
+
+
 						$body = '<td class="m_7569049885038207538wrapper" style="padding:0 10px">
 
 		<table width="100%" cellpadding="0" cellspacing="0">
@@ -169,27 +144,7 @@
 		</tr>
 		</tbody></table>
 		</td>';
-						$mail->IsSMTP(); // telling the class to use SMTP
-						$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)// 1 = errors and messa                                // 2 = messages only
-						$mail->SMTPAuth   = true;                  // enable SMTP authentication
-						$mail->SMTPSecure = "tls";
-						$mail->Host       = $config['smtphost']; // sets the SMTP server
-						$mail->Port       = $config['smtpport'];                    // set the SMTP port for the GMAIL server
-						$mail->Username   = $config['smtpuname']; // SMTP account username
-						$mail->Password   = $config['smtppassword'];        // SMTP account password
-						$mail->SetFrom($config['smtpemail'], $config['hotelName']);
-						$mail->AddReplyTo($config['emailadm'], $config['hotelName']);
-						$mail->CharSet = 'UTF-8';
-						$mail->Subject    = $config['hotelName'] . " - Recupere sua senha!";
-						$mail->AltBody    = $config['hotelName'] . " - Recupere sua senha!";
-						$mail->MsgHTML($body);
-						$address = $email;
-						$mail->AddAddress($address, $getInfo["username"]);
-						if ($mail->Send()) {
-							echo '<script>alert("' . $lang['IndexRUEnviado'] . '\n' . $address . '\n")</script>';
-						} else {
-							echo '<script>alert("' . $lang['IndexRUErro'] . '")</script>';
-						}
+						email($getInfo["mail"], $body, $lang['IRsA']);
 					}
 				}
 				?>
@@ -290,47 +245,13 @@
 				</h1>
 				<div class="forum">
 					<?php
-					function difer_data($data)
-					{
-
-						$agora = new DateTime();
-						try {
-							$data_ref = new DateTime($data);
-						} catch (Exception $e) {
-							echo $e->getMessage();
-							return NULL;
-						}
-						$intervalo = $data_ref->diff($agora);
-						extract((array) $intervalo);
-						if ($y >= 1) {
-							$sufixo = "{$y} " . ($y == 1 ? $lang['ano'] : $lang['anos']);
-						} else    
-						if ($m >= 1) {
-							$sufixo = "{$m} " . ($m == 1  ? $lang['mes'] : $lang['meses']);
-						} else    
-						if ($d > 7) {
-							$sufixo = floor($d / 7) . " " . ($d <= 14 ? $lang['semana'] : $lang['semanas']);
-						} else    
-								if ($d >= 1) {
-							$sufixo = "{$d} " . ($d == 1  ? $lang['dia'] : $lang['dias']);
-						} else    
-										if ($h >= 1) {
-							$sufixo = "{$h} " . ($h == 1  ? $lang['hora'] : $lang['horas']);
-						} else    
-												if ($i >= 1) {
-							$sufixo = "{$i} " . ($i == 1  ? $lang['minuto'] : $lang['minutos']);
-						} else {
-							$sufixo = "{$s} " . $lang['segundos'];
-						}
-						return $lang['IndexRegistrouHa'] . " {$sufixo}";
-					}
 					$getArticles = $dbh->prepare("SELECT * FROM users ORDER BY id DESC limit 6");
 					$getArticles->execute();
 					while ($news = $getArticles->fetch()) {
 						$dataregistro = difer_data(date('Y-m-d G:i:s', $news['account_created']));
 						$missao = utf8_decode($news["motto"]);
 						echo '<a class="sujet">
-<div class="avatar" tooltip tooltip-direction="top" tooltip-content="' . $dataregistro . '">
+<div class="avatar" tooltip tooltip-direction="top" tooltip-content="' . $lang['IndexRegistrouHa'] .' '.$dataregistro . '">
 <img src="' . $config['avatarImageUrl'] . '?figure=' . $news["look"] . '" />
 </div>
 <div class="infos">
