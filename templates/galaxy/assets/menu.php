@@ -5,11 +5,10 @@
 			<div class="logo">
 			</div>
 			<div class="right">
-				<a href="<?php echo $config['hotelUrl'];?>/hotel" onclick="OpenClient();return false;" target="_blank"><?= $lang['Hentrar'];?></a>
+				<a href="<?php echo $config['hotelUrl'];?>/hotel" style="width: 90px;float: left;">Flash</a>
+				<a href="<?php echo $config['hotelUrl'];?>/hotelv2" style="float: right;width: 90px;margin-top: -50px; background: #6c9c14;">HTML</a>
 				<a href="<?php echo $config['hotelUrl'];?>/sair"><?= $lang['Hsair'];?></a>
-					<center><a style="line-height:23px;width:85%;background:#4080ff;font-size:13px;margin-bottom: 10px;color:#fff;clear:both;text-align:center;padding:5px 15px;border-radius:3px;cursor:pointer;
-					"><?= Game::usersOnline();?> <?= $lang['Hons'];?></a></center>
-				</div>
+				<a href="#" style="background:#4080ff;line-height:21px"><?= Game::usersOnline();?> <?= $lang['Hons'];?></a>
 			</div>
 		</div>
 		<div class="navigation">

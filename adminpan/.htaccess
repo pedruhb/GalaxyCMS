@@ -1,0 +1,13 @@
+
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9_-]+)(|/)$ index.php?url=$1
+RewriteRule ^noticias/apagar/([a-zA-Z0-9_-]+)(|/)$ index.php?url=noticias&a=$1
+RewriteRule ^banimentos/apagar/([a-zA-Z0-9_-]+)(|/)$ index.php?url=banimentos&a=$1
+RewriteRule ^filtrodepalavras/apagar/([a-zA-Z0-9_-]+)(|/)$ index.php?url=filtrodepalavras&a=$1
+RewriteRule ^contasip/([\w\d~%.:_\-]+)$ index.php?url=contasip&ip=$1
+RewriteRule ^editar-noticia/([0-9]+)(|/)$ index.php?url=editar-noticia&id=$1
+RewriteRule ^editar-emblema/([^/.]+)$ index.php?url=editar-emblema&id=$1
+RewriteRule ^editar-usuario/([^/.]+)$ index.php?url=editar-usuario&user=$1
+RewriteRule ^quartos/([0-9]+)(|/)$ index.php?url=quartos&id=$1
+RewriteRule ^infracoes/apagar/([a-zA-Z0-9_-]+)(|/)$ index.php?url=infracoes&a=$1

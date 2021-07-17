@@ -381,3 +381,6 @@ $lang['V2'] = "Quais são as vantagens se der VIP?";
 $lang['V2c'] = " Os usuários VIP, podem trocar de nome quando quiser e quantas vezes quiser, tem comandos especiais, e além disso ganham emblemas, raros, meteoritos, diamantes e outros... <br>Para ver os planos clique <a href=\"#\">aqui</a>.";
 $lang['V3'] = "Como posso me tornar VIP?";
 $lang['V3c'] = "Para você ser VIP, clique <a href=\"#\">aqui</a> para acessar a central de contribuição do ".$config['hotelName']."!";
+
+/// client
+$lang['ClientStarting'] = $config['hotelName']." está carregando...";

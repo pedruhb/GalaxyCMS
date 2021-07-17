@@ -15,7 +15,7 @@
 		public static function sso($page)
 		{
 			global $dbh,$config;
-			$sessionKey  = 'Brain-'.$config['brainversion'].'-'.substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 25).'-SSO';
+			$sessionKey  = 'Galaxy-Servers-'.substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 25).'-SSO';
 			if($page == 'client')
 			{
 				$stmt = $dbh->prepare("UPDATE users SET auth_ticket = :sso , last_online = :timenow WHERE id = :id");
@@ -23,7 +23,7 @@
 				$stmt->bindParam(':id', $_SESSION['id']);
 				$stmt->bindParam(':sso', $sessionKey);
 				$stmt->execute();
-				$_SESSION['sso-token'] = $sessionKey;
+				$_SESSION['sso_galaxy'] = $sessionKey;
 			}
 			else if ($page == 'register')
 			{

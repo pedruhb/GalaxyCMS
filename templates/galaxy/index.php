@@ -258,7 +258,7 @@
 <p class="title">
 ' . $news["username"] . ' </p>
 <p class="by">
-' . $lang['IndexMissao'] . ' ' . $missao . '</span>
+' . $lang['IndexMissao'] . ' ' . strip_tags($missao) . '</span>
 </p>
 </div>
 </a>';
@@ -267,7 +267,7 @@
 				</div>
 				<div class="classment">
 					<?php
-					$getMessagedd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.id and users.rank < 3 ORDER BY online_time DESC LIMIT 1");
+					$getMessagedd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.user_id and users.rank < 3 ORDER BY online_time DESC LIMIT 1");
 					$getMessagedd->execute();
 					$getMessageDatadd = $getMessagedd->fetch();
 					$total = $getMessageDatadd['OnlineTime'];
@@ -285,7 +285,7 @@
 						</div>
 					</div>
 					<?php
-					$getMessage22dd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.id and users.rank < 3 ORDER BY online_time DESC LIMIT 1, 2 ");
+					$getMessage22dd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.user_id and users.rank < 3 ORDER BY online_time DESC LIMIT 1, 2 ");
 					$getMessage22dd->execute();
 					$getMessageData22dd = $getMessage22dd->fetch();
 
@@ -305,7 +305,7 @@
 					</div>
 
 					<?php
-					$getMessage223dd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.id and users.rank < 3 ORDER BY online_time DESC LIMIT 2, 1 ");
+					$getMessage223dd = $dbh->prepare("SELECT users.username, users.look, users_settings.online_time FROM users, users_settings WHERE users.id = users_settings.user_id and users.rank < 3 ORDER BY online_time DESC LIMIT 2, 1 ");
 					$getMessage223dd->execute();
 					$getMessageData223dd = $getMessage223dd->fetch();
 

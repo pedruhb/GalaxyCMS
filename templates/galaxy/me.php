@@ -21,7 +21,8 @@
 						<span><?= User::userData('username') ?></span>
 						<i class="habbfont"><?= User::userData('motto'); ?></i>
 					</div>
-					<a href="hotel" onclick="OpenClient();return false;" target="_blank"><?= $lang['Mentrar']; ?></a>
+					<a href="/hotelv2" onclick="OpenClient();return false;">HTML</a>
+					<a href="/hotel" onclick="OpenClient();return false;">Flash</a>
 				</div>
 			</div>
 			<div class="money">
